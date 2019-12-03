@@ -1,4 +1,5 @@
 This docker image provides a DB server for Minecraft Plug-in Server(etc CoreProtect).
+Japanese localization.
 
 # To simply use the latest stable version, run
 docker run -d -p 3306:3306 -v /host/directory/db:/var/lib/mysql --name db ccmite/db
