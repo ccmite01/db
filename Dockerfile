@@ -12,3 +12,8 @@ RUN : "add package" && \
     rm -f /etc/localtime && \
     ln -s /usr/share/zoneinfo/Japan /etc/localtime && \
     echo "Asia/Tokyo" > /etc/timezone
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+EXPOSE 3306
+CMD ["mysqld"]
+
