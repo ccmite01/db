@@ -12,7 +12,8 @@ RUN : "add package" && \
     rm -f /etc/localtime && \
     ln -s /usr/share/zoneinfo/Japan /etc/localtime && \
     echo "Asia/Tokyo" > /etc/timezone && \
-    sed -i 's/#log_bin/log_bin/g' /etc/mysql/my.cnf
+    sed -i 's/#log_bin/log_bin/g' /etc/mysql/my.cnf && \
+    sed -i 's/#general_log/general_log/g' /etc/mysql/my.cnf
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3306
