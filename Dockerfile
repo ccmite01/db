@@ -11,9 +11,10 @@ RUN : "add package" && \
     update-locale LANG=ja_JP.UTF-8 && \
     rm -f /etc/localtime && \
     ln -s /usr/share/zoneinfo/Japan /etc/localtime && \
-    echo "Asia/Tokyo" > /etc/timezone
+    echo "Asia/Tokyo" > /etc/timezone && \
+    sed -i 's/#log_bin /log_bin /g' /etc/mysql/my.cnf && \
+    sed -i 's/#log_bin_index /log_bin_index /g' /etc/mysql/my.cnf
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3306
 CMD ["mysqld"]
-
